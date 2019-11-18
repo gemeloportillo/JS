@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	   <meta charset="UTF-8">
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<![endif]-->    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" integrity="sha384-Zzs5x1/YUvlxpCu06c197tRCubLCMA7pCoHbZeoZuz/oEgYD6NVmvLzDSKYBoc3J" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-dkTxiR4Mv8i0ubTj0fsgTCmhYmOtrc0o6rdrEO6hDZs9cAifak0Y2VVL2cecWHLQ" crossorigin="anonymous">
+	<title>Calculo de Cuota Mensual Préstamo Hipotecario</title>
+</head>
+<body>
+	<h1>Calcula tu mensualidad del préstamo</h1>
+	<label class="label">Valor del crédito:</label><br/>
+	<input class="form-control"  type="text" placeholder="Valor del crédito" id="valorcredito"><br/>
+	<label class="label">Tasa de interés:</label><br/>
+	<input class="form-control"  type="text" placeholder="Tasa de interés" id="tasainteres"><br/>
+	<label class="label">Duración del crédito en meses:</label><br/>
+	<input class="form-control"  type="text" placeholder="Duración del crédito en meses" id="numeroperiodos"><br/>
+	<button onclick="getInputValue()" class="btn btn-default">Calcular</button>
+	<h1 id="demo2"></h1>
+
+<script type="text/javascript">
+	// var valorCredito = 70000;
+	// var tasa_interes = 6/100;
+	// var meses = 12;
+	// var i = tasa_interes/meses; 
+	// var numeroPeriodos = 360; 
+
+	// let cuotaMensual = valorCredito *(i*(1+i));
+
+
+	// var dividendo = valorCredito * (i * Math.pow(1+i,numeroPeriodos));
+	// var divisor = Math.pow(1+i,numeroPeriodos)-1
+	// var resultado = dividendo/divisor;
+
+	
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = resultado;
+}
+
+
+
+        function getInputValue(){
+            // Selecting the input element and get its value 
+            var valorCredito = document.getElementById("valorcredito").value;
+            var tasainteres = document.getElementById("tasainteres").value;
+            var tasa_interes = tasainteres/100;
+			var meses = 12;
+			var i = tasa_interes/meses; 
+            var numeroPeriodos = document.getElementById("numeroperiodos").value;
+
+            var dividendo = valorCredito * (i * Math.pow(1+i,numeroPeriodos));
+			var divisor = Math.pow(1+i,numeroPeriodos)-1
+			var resultado = dividendo/divisor;
+            
+            // Displaying the value
+
+            document.getElementById("demo2").innerHTML = "Tu mensualidad es de: " + resultado.toFixed(2) + " pesos";
+
+        }
+
+</script>
+</body>
+</html>
